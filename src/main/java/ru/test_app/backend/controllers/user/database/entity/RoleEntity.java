@@ -1,8 +1,10 @@
 package ru.test_app.backend.controllers.user.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.antlr.v4.runtime.misc.NotNull;
 
+import java.io.Serializable;
 import java.util.UUID;
 
 @Entity(name = "user_roles")
@@ -16,6 +18,7 @@ public class RoleEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
+    @JsonIgnore
     private UserEntity user;
 
     /* CONSTRUCTORS */

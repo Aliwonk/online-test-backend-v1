@@ -7,6 +7,7 @@ public class ResponseController {
     private int statusCode;
     private String message;
     private Object data;
+    private String errorMessage;
 
     public ResponseController() {
     }
@@ -22,6 +23,8 @@ public class ResponseController {
         this.message = message;
     }
 
+    /* GETTERS */
+
     public int getStatusCode() {
         return statusCode;
     }
@@ -34,6 +37,12 @@ public class ResponseController {
         return data;
     }
 
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    /* SETTERS */
+
     public void setStatusCode(int statusCode) {
         this.statusCode = statusCode;
     }
@@ -44,5 +53,9 @@ public class ResponseController {
 
     public void setData(Object data) {
         this.data = data;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 }

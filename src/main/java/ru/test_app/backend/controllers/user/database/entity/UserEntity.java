@@ -1,10 +1,10 @@
 package ru.test_app.backend.controllers.user.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -24,6 +24,7 @@ public class UserEntity {
     @Column(unique = true, nullable = false, length = 255)
     public String email;
 
+    @JsonIgnore
     @Column(nullable = false)
     public byte[] hashedPassword;
 
@@ -50,6 +51,13 @@ public class UserEntity {
         this.email = email;
         this.hashedPassword = hashedPassword;
         this.roles = roles;
+    }
+
+    public UserEntity(String firstName, String lastName, String email, byte[] hashedPassword) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.email = email;
+        this.hashedPassword = hashedPassword;
     }
 
     // GETTERS
